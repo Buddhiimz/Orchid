@@ -1,84 +1,98 @@
-# Orchid - common ignores
-
-# OS
+# Generic
 .DS_Store
 Thumbs.db
 ehthumbs.db
 Desktop.ini
 
-# Logs
-logs/
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Dependency directories
+# Node
 node_modules/
-.pnp/
-.pnp.js
-jspm_packages/
-
-# Build / output
-dist/
-build/
-out/
-coverage/
-.report/
-target/
-bin/
-obj/
-
-# Environment / secrets
+npm-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
 .env
-.env.*
-!.env.example
-
-# Editor / IDE
-.vscode/
-.idea/
-*.suo
-*.user
-*.userprefs
-*.sln.docstates
+.env.local
+.env.*.local
 
 # Python
 __pycache__/
 *.py[cod]
+*.pyo
 *.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
 venv/
-.envvenv/
+ENV/
 env/
-.venv/
+pip-log.txt
+coverage/
+htmlcov/
 
-# Java
+# .NET / Visual Studio
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.cache
+bin/
+obj/
+
+# Java / Gradle / Maven
 *.class
 *.jar
 *.war
 *.ear
+build/
+target/
 
-# C# / .NET
-*.dll
-*.exe
-*.dbmdl
-*.pdb
-*.cache
-*.ilk
+# IDEs
+.vscode/
+.idea/
+*.iml
+
+# Logs and databases
 *.log
-TestResults/
+logs/
+*.sqlite3
+*.db
 
-# macOS / thumbs
+# OS generated
 Icon?
 ._*
+.Spotlight-V100
+.Trashes
 
-# Misc
-*.swp
-*~.nib
-*.tmp
-.cache/
-coverage-final.json
+# Archives, packages, binaries
+*.zip
+*.tar.gz
+*.rar
+*.7z
+*.exe
+*.dll
+*.so
+*.dylib
 
-# Keep project-specific sample files
-!.gitignore
-!.gitattributes
+# Coverage & reports
+coverage/
+coverage.xml
+report/
 
+# Ignore local config files
+local.properties
+
+# Inception / ML model artifacts
+inception_model/
+inception*.pb
+inception*.ckpt
+*.ckpt
+*.ckpt.index
+*.ckpt.meta
+*.h5
+*.hdf5
+saved_model/
+saved_model.pb
+variables/
+*.tflite
+*.onnx
+*.pt
