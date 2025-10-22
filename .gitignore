@@ -1,0 +1,84 @@
+# Orchid - common ignores
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+.pnp/
+.pnp.js
+jspm_packages/
+
+# Build / output
+dist/
+build/
+out/
+coverage/
+.report/
+target/
+bin/
+obj/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Editor / IDE
+.vscode/
+.idea/
+*.suo
+*.user
+*.userprefs
+*.sln.docstates
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+venv/
+.envvenv/
+env/
+.venv/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# C# / .NET
+*.dll
+*.exe
+*.dbmdl
+*.pdb
+*.cache
+*.ilk
+*.log
+TestResults/
+
+# macOS / thumbs
+Icon?
+._*
+
+# Misc
+*.swp
+*~.nib
+*.tmp
+.cache/
+coverage-final.json
+
+# Keep project-specific sample files
+!.gitignore
+!.gitattributes
+

@@ -1,0 +1,124 @@
+<div class="page-wrapper">
+  <!-- Page Title -->
+  <div class="page-header" *ngIf="!prediction">
+    <h1 class="page-title">Orchid Species Identifier</h1>
+    <p class="page-subtitle">Upload an image to identify your orchid species</p>
+  </div>
+
+  <div class="content-row">
+    <!-- Upload Section -->
+    <div class="upload-section" [class.shifted]="prediction">
+      <div class="upload-box">
+        <input 
+          type="file" 
+          id="fileInput" 
+          (change)="onFileSelected($event)" 
+          accept="image/*"
+          hidden
+        />
+        
+        <div class="image-preview-container" *ngIf="!imagePreview">
+          <label for="fileInput" class="upload-label">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            <p>Click to upload orchid image</p>
+            <span>PNG, JPG up to 10MB</span>
+          </label>
+        </div>
+
+        <div class="image-preview-container" *ngIf="imagePreview">
+          <img [src]="imagePreview" alt="Preview" class="preview-image" />
+          <button
+            class="remove-btn"
+            (click)="removeImage()"
+            *ngIf="!prediction"
+            aria-label="Remove image"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Back Button (shown when prediction exists) -->
+      <button class="back-btn" (click)="removeImage()" *ngIf="prediction">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Upload
+      </button>
+
+
+      <button 
+        class="predict-btn" 
+        (click)="onUpload()" 
+        [disabled]="!selectedFile || isLoading"
+        *ngIf="!prediction"
+      >
+        <span *ngIf="!isLoading">Predict Orchid Species</span>
+        <span *ngIf="isLoading">
+          <svg class="spinner" width="20" height="20" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" opacity="0.25"></circle>
+            <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="4" fill="none"></path>
+          </svg>
+          Analyzing...
+        </span>
+      </button>
+
+      <div class="error-message" *ngIf="error">
+        {{ error }}
+      </div>
+    </div>
+
+    <!-- Details Section -->
+    <div class="details-section" *ngIf="orchidDetails">
+      <div class="details-card">
+        <div class="details-header">
+          <h2>{{ orchidDetails.commonName }}</h2>
+          <button class="new-prediction-btn" (click)="removeImage()">
+            New Prediction
+          </button>
+        </div>
+        
+        <div class="details-content">
+          <div class="detail-item">
+            <span class="detail-label">Scientific Name:</span>
+            <span class="detail-value">{{ orchidDetails.scientificName }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Genus:</span>
+            <span class="detail-value">{{ orchidDetails.genus }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Origin:</span>
+            <span class="detail-value">{{ orchidDetails.origin }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Bloom Season:</span>
+            <span class="detail-value">{{ orchidDetails.bloomSeason }}</span>
+          </div>
+
+          <div class="detail-item full-width">
+            <span class="detail-label">Description:</span>
+            <p class="detail-description">{{ orchidDetails.description }}</p>
+          </div>
+
+          <div class="detail-item full-width">
+            <span class="detail-label">Care Tips:</span>
+            <ul class="care-tips-list">
+              <li *ngFor="let tip of orchidDetails.careTips">{{ tip }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

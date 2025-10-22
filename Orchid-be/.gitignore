@@ -1,0 +1,123 @@
+# Operating System
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Environment files
+.env
+.env.*.local
+.env.local
+.env.production
+.env.test
+secrets.env
+
+# Node.js
+node_modules/
+dist/
+build/
+.cache/
+.npm/
+.pnp.*
+.vscode/
+*.tgz
+
+# Common frontend/framework build outputs
+.next/
+.nuxt/
+out/
+public/build/
+.svelte-kit/
+.vite/
+parcel-cache/
+
+# TypeScript
+*.tsbuildinfo
+
+# Testing
+coverage/
+coverage-final.json
+.nyc_output/
+jest.cache/
+playwright-report/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+venv/
+env/
+.venv/
+
+# Java / JVM
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+.gradle/
+build/
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+
+# IDEs and editors
+.idea/
+*.sublime-*
+*.code-workspace
+.vscode/
+*.tmproj
+
+# Docker
+docker-compose.override.yml
+docker-compose.*.yml
+docker-compose.local.yml
+
+# Misc / secrets / keys
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.asc
+
+# Temporary files
+*.swp
+*.swo
+*~
+*.tmp
+
+# Ignore local OS-specific metadata
+.DS_Store?
+.Spotlight-V100
+.Trashes
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+
+# Serverless
+.serverless/
+
+# Optional: lockfiles (uncomment if you don't want locks tracked)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+.package-lock.json/
+.package.json/
